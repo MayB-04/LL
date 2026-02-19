@@ -21,6 +21,7 @@ body {
     box-sizing: border-box;
 }
 
+
 /* The Speech Bubble */
 .speech-bubble {
     background: white;
@@ -32,10 +33,16 @@ body {
 }
 
 /* The Frog (Let's make him big!) */
-.frog-sprite {
-    font-size: 80px;
-    margin-bottom: 20px;
+#frog-sprite {
+    width: 150px; 
+    transition: transform 0.3s ease;
 }
+
+/* Make him bounce even more with CSS if you want! */
+#frog-sprite:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
 
 button {
     background-color: #ff4d6d;

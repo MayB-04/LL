@@ -1,7 +1,7 @@
 function startGame() {
-    alert("The game is starting!");
-    console.log("Button clicked!");
+   window.location.href = "page1.html";   
 }
+
 const kissBtn = document.getElementById('surprise-kiss');
 function surpriseKiss(){
     document.body.classList.add('pink-background');
@@ -15,7 +15,7 @@ function surpriseKiss(){
 
     const emoji = document.createElement('span');
     emoji.innerText = "💋";
-    emoji.style.fontSize = "100px"; 
+    emoji.style.fontSize = "200px"; 
 
     kissContainer.appendChild(mwah);
     kissContainer.appendChild(emoji);
@@ -27,3 +27,14 @@ function surpriseKiss(){
    },2000);
 }
 kissBtn.addEventListener('click',surpriseKiss);
+
+const frog = document.getElementById('frog-sprite');
+
+frog.addEventListener('mouseover', () => {
+    frog.style.animationDuration = '0.4s'; 
+});
+
+frog.addEventListener('mouseout', () => {
+    frog.style.animationDuration = '0.8s'; 
+});
+
