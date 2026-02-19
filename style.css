@@ -1,22 +1,24 @@
 /* Centering everything on the screen */
 body {
-    /*background-color: #a2d2ff;  Soft blue background 
+    background-color:#c1e9a8 ; 
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;  Placeholder for a game font */
-    background: red;
+    font-family: 'Courier New', Courier, monospace; 
 }
 
 #game-screen {
     text-align: center;
-    background: #fdf0d5; /* Paper/Cream color */
-    padding: 50px;
-    border: 8px solid #5e503f; /* Dark wood-style border */
+    background: #fdf0d5; 
+    padding: 100px;
+    border: 8px solid #5e503f; 
     border-radius: 20px;
     box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
 }
 
 /* The Speech Bubble */
@@ -35,7 +37,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* The Button */
 button {
     background-color: #ff4d6d;
     color: white;
@@ -50,4 +51,54 @@ button {
 button:active {
     transform: translateY(4px);
     box-shadow: 0 1px #c9184a;
+}
+#frog-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.5rem;     
+    font-weight: 600;       
+    color: #5e503f;        
+    letter-spacing: 1px;   
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+}
+.kiss-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    z-index: 1000;
+    pointer-events: none;
+    animation: popIn 2s ease-in-out forwards;
+}
+
+@keyframes popIn {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    10% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    15% { transform: translate(-50%, -50%) scale(1); }
+    80% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+}
+.kiss-button {
+    position: fixed;   
+    bottom: 20px;      
+    left: 20px;        
+    z-index: 100;      
+}
+.mwah-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2rem;
+    color: #ff4d6d;
+    margin-bottom: 10px;
+}
+.pink-background{
+    background-color: #ffb3c1;
+}
+
+
+#surprise-kiss {
+    padding: 10px 20px;
+    font-size: 14px;
+    box-shadow: 0 3px #fb6f92;
 }
