@@ -4,7 +4,9 @@ function startGame() {
 
 const kissBtn = document.getElementById('surprise-kiss');
 function surpriseKiss(){
-    document.body.classList.add('pink-background');
+    const blurOverlay = document.createElement('div');
+    blurOverlay.classList.add('blur-overlay');
+    document.body.appendChild(blurOverlay);
 
     const kissContainer = document.createElement('div');
     kissContainer.classList.add('kiss-overlay');
@@ -23,7 +25,7 @@ function surpriseKiss(){
 
     setTimeout(() => {
         kissContainer.remove();
-    document.body.classList.remove('pink-background');
+        blurOverlay.remove();
    },2000);
 }
 kissBtn.addEventListener('click',surpriseKiss);
