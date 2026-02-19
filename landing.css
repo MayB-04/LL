@@ -35,12 +35,13 @@ body {
 /* The Frog (Let's make him big!) */
 #frog-sprite {
     width: 150px; 
-    transition: transform 0.3s ease;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s;
 }
 
-/* Make him bounce even more with CSS if you want! */
-#frog-sprite:hover {
-    transform: scale(1.1) rotate(5deg);
+.jump {
+    transform: translateY(-40px) scale(1.05); 
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); 
 }
 
 

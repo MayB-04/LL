@@ -30,11 +30,13 @@ kissBtn.addEventListener('click',surpriseKiss);
 
 const frog = document.getElementById('frog-sprite');
 
-frog.addEventListener('mouseover', () => {
-    frog.style.animationDuration = '0.4s'; 
-});
+if (frog) {
+    frog.addEventListener('mouseenter', () => {
+        frog.classList.add('jump');
+    });
 
-frog.addEventListener('mouseout', () => {
-    frog.style.animationDuration = '0.8s'; 
-});
+    frog.addEventListener('mouseleave', () => {
+        frog.classList.remove('jump');
+    });
+}
 
