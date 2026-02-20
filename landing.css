@@ -40,6 +40,24 @@ body {
     max-width: 1200px;
     box-sizing: border-box;
 }
+#game-container {
+   text-align: center;
+    background: #84d3e7;
+    padding: 5vh 5%; 
+    border: 5px solid #5e503f;
+    border-radius: 20px; 
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+    width: 97%;       
+    max-width: 1000px; 
+    min-height: 70vh;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
 
 
 /* The Speech Bubble */
@@ -52,7 +70,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* The Frog (Let's make him big!) */
 #frog-sprite {
     width: 150px; 
     cursor: pointer;
@@ -124,9 +141,73 @@ button:active {
     background-color: #ffb3c1;
 }
 
-
 #surprise-kiss {
     padding: 10px 20px;
     font-size: 14px;
     box-shadow: 0 3px #fb6f92;
+}
+/* The Pond */
+.water-area {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Adjust height to fit your image's look */
+    
+    background-size: cover; 
+    background-position: bottom center;
+
+    background-image: url('fullPond.png');
+    animation: none; 
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 1;
+}
+
+
+.lily-pad {
+    position: absolute;
+    bottom: 10%; /* Position it on top of the water */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 40px;
+    background: #4a7c44;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    
+    /* Optional: Make the pad 'bob' up and down */
+    animation: bobbing 3s ease-in-out infinite;
+}
+
+@keyframes bobbing {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -10px); }
+}
+
+/* Positioning the Frog on the Pad */
+.lily-pad .frog-sprite {
+    font-size: 50px;
+    margin-top: -90px; /* Sits the frog on top of the pad */
+}
+.bug-sprite {
+    position: absolute;
+    z-index: 10;
+    width: 70px; 
+    pointer-events: auto; 
+    z-index: 7;
+    left: 0;
+    top: 0;
+    transform-origin: center center; 
+    transition: none !important;
+}
+
+.bug-sprite img {
+    width: 100%;
+    height: auto; 
+    display: block;
 }
