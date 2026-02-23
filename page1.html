@@ -11,6 +11,15 @@
     <div id ='game-container'>
         <div id="bug" class="bug-sprite">
              <img src="butterfly.gif"  alt="Butterfly">
+              <div id="mini-letter" class="mini-envelope">✉️</div>
+        </div>
+
+       
+        <div id="letter-overlay" class="hidden">
+            <div class="letter-paper">
+                <button class="close-btn" onclick="closeLetter()">X</button>
+                <p id="letter-text"></p>
+            </div>
         </div>
 
         <div class="water-area">
