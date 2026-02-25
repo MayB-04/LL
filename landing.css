@@ -1,6 +1,6 @@
 /* Centering everything on the screen */
 body {
-    background-color:#c1e9a8 ; 
+    background-color:#c1e9a8; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,6 +8,7 @@ body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace; 
 }
+
 .blur-overlay {
     position: fixed;
     top: 0;
@@ -16,11 +17,9 @@ body {
     height: 100vh;
     z-index: 999;
     pointer-events: none;
-    
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     background-color: rgba(255, 182, 193, 0.4); 
-    
     animation: fadeIn 0.4s ease-in-out;
 }
 
@@ -40,8 +39,9 @@ body {
     max-width: 1200px;
     box-sizing: border-box;
 }
+
 #game-container {
-   text-align: center;
+    text-align: center;
     background: #84d3e7;
     padding: 5vh 5%; 
     border: 5px solid #5e503f;
@@ -58,7 +58,6 @@ body {
     box-sizing: border-box;
     overflow: hidden;
 }
-
 
 /* The Speech Bubble */
 .speech-bubble {
@@ -81,7 +80,6 @@ body {
     filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); 
 }
 
-
 button {
     background-color: #ff4d6d;
     color: white;
@@ -97,14 +95,16 @@ button:active {
     transform: translateY(4px);
     box-shadow: 0 1px #c9184a;
 }
+
 #frog-text {
     font-family: 'Fredoka', sans-serif;
     font-size: 2.5rem;     
     font-weight: 600;       
-    color: #5e503f;        
+    color: #5e503f;         
     letter-spacing: 1px;   
     text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
 }
+
 .kiss-overlay {
     position: fixed;
     top: 50%;
@@ -125,18 +125,21 @@ button:active {
     80% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
     100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
 }
+
 .kiss-button {
     position: fixed;   
     bottom: 20px;      
     left: 20px;        
     z-index: 100;      
 }
+
 .mwah-text {
     font-family: 'Fredoka', sans-serif;
     font-size: 5rem;
     color: #ff4d6d;
     margin-bottom: 10px;
 }
+
 .pink-background{
     background-color: #ffb3c1;
 }
@@ -146,29 +149,26 @@ button:active {
     font-size: 14px;
     box-shadow: 0 3px #fb6f92;
 }
+
 /* The Pond */
 .water-area {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Adjust height to fit your image's look */
-    
+    height: 100%; 
     background-size: cover; 
     background-position: bottom center;
-
     background-image: url('fullPond.png');
     animation: none; 
-
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     z-index: 1;
 }
 
-
 .lily-pad {
     position: absolute;
-    bottom: 10%; /* Position it on top of the water */
+    bottom: 10%; 
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
@@ -179,8 +179,6 @@ button:active {
     justify-content: center;
     align-items: center;
     z-index: 5;
-    
-    /* Optional: Make the pad 'bob' up and down */
     animation: bobbing 3s ease-in-out infinite;
 }
 
@@ -189,17 +187,16 @@ button:active {
     50% { transform: translate(-50%, -10px); }
 }
 
-/* Positioning the Frog on the Pad */
 .lily-pad .frog-sprite {
     font-size: 50px;
-    margin-top: -90px; /* Sits the frog on top of the pad */
+    margin-top: -90px; 
 }
+
 .bug-sprite {
     position: absolute;
-    z-index: 10;
     width: 70px; 
     pointer-events: auto; 
-    z-index: 7;
+    z-index: 100; /* Increased to stay above the pond */
     left: 0;
     top: 0;
     transform-origin: center center; 
@@ -210,18 +207,18 @@ button:active {
     width: 100%;
     height: auto; 
     display: block;
+    cursor: pointer;
 }
 
+/* FIX: This makes clicks pass through the emoji to the bug! */
 .mini-envelope {
     position: absolute;
     top: 45%; 
     left: 45%;
     transform: translate(-50%, 10px); 
-    
     font-size: 24px;
-    z-index: 11; 
-    pointer-events: none; 
-    
+    z-index: 101; 
+    pointer-events: none; /* Crucial change */
     animation: sway 1s ease-in-out infinite alternate;
 }
 
@@ -236,11 +233,11 @@ button:active {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7); /* Darkened for better focus */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    z-index: 9999; /* Highest priority */
 }
 
 .letter-paper {
@@ -252,6 +249,7 @@ button:active {
     box-shadow: 10px 10px 0px #ffb6c1;
     transform: scale(0);
     animation: openLetter 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
 }
 
 @keyframes openLetter {
@@ -259,3 +257,39 @@ button:active {
 }
 
 .hidden { display: none !important; }
+
+/* Password card centering */
+#password-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+}
+
+#password-input {
+    font-family: 'Fredoka', sans-serif;
+    padding: 10px;
+    border: 2px solid #ffb3c1;
+    border-radius: 10px;
+    width: 80%;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    box-shadow: none;
+    color: #5e503f;
+    font-size: 18px;
+    padding: 5px;
+}

@@ -44,17 +44,19 @@ const bugElement = document.getElementById('bug');
 const letterOverlay = document.getElementById('letter-overlay');
 const letterText = document.getElementById('letter-text');
 
-bugElement.addEventListener('click', () => {
-    document.getElementById('mini-letter').style.opacity = "0";
+bug.addEventListener('click', () => {
+    console.log("Bug clicked!"); // Check your console (F12) to see if this triggers
     
     letterOverlay.classList.remove('hidden');
 
     const isLoveMode = localStorage.getItem('loveUnlocked') === 'true';
-    
+
     if (isLoveMode) {
-        letterText.innerText = "Letter #1: I love the way you always make me feel safe. You're my favorite person to talk to.";
+        // This shows if they got the password right
+        letterText.innerText = "I love you";
     } else {
-        letterText.innerText = "Letter #1: You are a very kind and thoughtful friend. Thanks for being you!";
+        // This shows if they got the password wrong OR hit "Just Play"
+        letterText.innerText = "AAAahhhhhhhhhhhhhhhhh";
     }
 });
 
