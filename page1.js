@@ -3,3 +3,61 @@ function landingPage(){
     window.location.href = "index.html";
 }
 backBtnLanding.addEventListener('click',landingPage);
+
+const bug = document.getElementById('bug');
+const container = document.getElementById('game-container');
+
+let posX = -100;      
+let posY = 100;       
+let targetY = 100;    
+let speedX = 2;       
+let speedY = 0;       
+
+function flutterAcross() {
+    const width = container.clientWidth;
+    posX += speedX;
+
+    if (Math.random() > 0.97) { 
+        targetY = 50 + Math.random() * 150; 
+    }
+
+    let distanceToTarget = targetY - posY;
+    speedY += distanceToTarget * 0.01; 
+    speedY *= 0.85;                    
+    posY += speedY;
+
+    
+    bug.style.left = posX + "px";
+    bug.style.top = posY + "px";
+    bug.style.transform = `rotate(${speedY * 8}deg)`;
+
+    if (posX > width + 100) {
+        posX = -100;
+        posY = 100; 
+    }
+
+    requestAnimationFrame(flutterAcross);
+}
+flutterAcross();
+
+const bugElement = document.getElementById('bug');
+const letterOverlay = document.getElementById('letter-overlay');
+const letterText = document.getElementById('letter-text');
+
+bugElement.addEventListener('click', () => {
+    document.getElementById('mini-letter').style.opacity = "0";
+    
+    letterOverlay.classList.remove('hidden');
+
+    const isLoveMode = localStorage.getItem('loveUnlocked') === 'true';
+    
+    if (isLoveMode) {
+        letterText.innerText = "Letter #1: I love the way you always make me feel safe. You're my favorite person to talk to.";
+    } else {
+        letterText.innerText = "Letter #1: You are a very kind and thoughtful friend. Thanks for being you!";
+    }
+});
+
+function closeLetter() {
+    letterOverlay.classList.add('hidden');
+}
