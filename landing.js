@@ -18,11 +18,9 @@ function handlePlay() {
     // 1. Check if the password is correct
     if (userInput.includes("sailor song")) {
         localStorage.setItem('loveUnlocked', 'true');
-        alert("💖 Love Mode Activated! 💖");
     } else {
         // 2. If wrong, default to NO love mode
         localStorage.setItem('loveUnlocked', 'false');
-        alert("That's not it! Entering normal mode... 🐸");
     }
 
     // 3. Either way, send them to the next page now

@@ -45,18 +45,16 @@ const letterOverlay = document.getElementById('letter-overlay');
 const letterText = document.getElementById('letter-text');
 
 bug.addEventListener('click', () => {
-    console.log("Bug clicked!"); // Check your console (F12) to see if this triggers
+    console.log("Bug clicked!"); 
     
     letterOverlay.classList.remove('hidden');
 
     const isLoveMode = localStorage.getItem('loveUnlocked') === 'true';
 
     if (isLoveMode) {
-        // This shows if they got the password right
         letterText.innerText = "I love you";
     } else {
-        // This shows if they got the password wrong OR hit "Just Play"
-        letterText.innerText = "AAAahhhhhhhhhhhhhhhhh";
+        letterText.innerText = "I love you";
     }
 });
 

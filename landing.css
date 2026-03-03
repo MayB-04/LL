@@ -293,3 +293,30 @@ button:active {
     font-size: 18px;
     padding: 5px;
 }
+#instructions {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0 8px 15px rgba(255, 183, 197, 0.4);
+    border: 3px solid #ffb7c5;
+    z-index: 1000;
+    text-align: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+#instructions p {
+    margin: 0;
+    font-weight: 600;
+    color: #ff748c;
+    font-size: 1.2rem;
+}
+
+/* Simple Floating Animation */
+@keyframes float {
+    0%, 100% { transform: translate(-50%, 0px); }
+    50% { transform: translate(-50%, -10px); }
+}
