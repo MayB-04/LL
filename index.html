@@ -9,6 +9,18 @@
 </head>
 <body>
 
+    <div id="password-overlay" class="hidden">
+        <div class="letter-paper">
+            <h2 id="password-prompt-text">Enter the Secret Song...</h2>
+            <input type="text" id="password-input" placeholder="No hints!">
+            <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+                <button onclick="handlePlay()">Unlock</button>
+                <button onclick="skipToNormal()" style="background: #999; box-shadow: 0 5px #666;">Just Play</button>
+            </div>
+            <button class="close-btn" onclick="togglePasswordPopup()">X</button>
+        </div>
+    </div>
+
     <div id="game-screen">
         <div class="frog-container">
             <div class="speech-bubble">
@@ -20,11 +32,12 @@
         </div>
 
         <div class="menu">
-            <button id="play-button" onclick="startGame()">PLAY</button>
+            <button id="play-button" onclick="showPasswordPrompt()">PLAY</button>
         </div>
     </div>
+
     <div class="kiss-button">
-            <button id= "surprise-kiss">Press for a surprise!</button>
+        <button id="surprise-kiss">Press for a surprise!</button>
     </div>
 
     <script src="landing.js"></script>
